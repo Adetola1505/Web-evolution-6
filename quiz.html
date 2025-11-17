@@ -1,39 +1,36 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Quiz | HTTP</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8">
+  <title>References | HTTP</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <body>
 
-<body>
-
-<header>
-    <h1>Self-Assessment Quiz</h1>
-    <nav>
-        <ul class="main-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Topic 1.html">Topic 1</a></li>
-            <li><a href="Topic 2.html">Topic 2</a></li>
-            <li><a href="key-Concept.html">Key-Concept 1</a></li>
-            <li><a href="references.html">References</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="quiz-container">
-
-    <form id="quizForm">
-
-        <!-- Question 1 -->
+      <header>
+        <h1>References</h1>
+      
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Home</a></a></li>
+                <li><a href="topic1.html">Topic 1</a></li>
+                <li><a href="topic2.html">Topic 2</a></li>
+                <li><a href="key-concept.html">Key-Concept 1</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+    
+            </u1>
+        </nav>
+        <section class="quiz-container"></section>
+        
+        <form id="quizForm>"
+        
         <div class="question">
-            <h3>1. What does HTML stand for?</h3>
+            <h3>1. Fill in the blank</h3>
+            <label>What does HTML stand for?</label><br>
             <input type="text" id="q1">
         </div>
-
-        <!-- Question 2 -->
+        
         <div class="question">
             <h3>2. Which tag creates a hyperlink?</h3>
             <label><input type="radio" name="q2" value="a"> &lt;div&gt;</label><br>
@@ -41,7 +38,6 @@
             <label><input type="radio" name="q2" value="c"> &lt;link&gt;</label>
         </div>
 
-        <!-- Question 3 -->
         <div class="question">
             <h3>3. CSS is used for:</h3>
             <label><input type="radio" name="q3" value="a"> Structuring content</label><br>
@@ -49,7 +45,6 @@
             <label><input type="radio" name="q3" value="c"> Storing data</label>
         </div>
 
-        <!-- Question 4 -->
         <div class="question">
             <h3>4. Which is a JavaScript data type?</h3>
             <label><input type="radio" name="q4" value="a"> span</label><br>
@@ -57,7 +52,6 @@
             <label><input type="radio" name="q4" value="c"> href</label>
         </div>
 
-        <!-- Question 5 -->
         <div class="question">
             <h3>5. Select all programming languages:</h3>
             <label><input type="checkbox" name="q5" value="js"> JavaScript</label><br>
@@ -65,9 +59,8 @@
             <label><input type="checkbox" name="q5" value="python"> Python</label><br>
         </div>
 
-        <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+          <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
         <button type="reset" onclick="resetResults()">Reset Quiz</button>
-
     </form>
 
     <div id="results"></div>
@@ -81,7 +74,7 @@ const answers = {
     q2: "b",
     q3: "b",
     q4: "b",
-    q5: ["js", "python"]
+    q5: ["js", "python"] // multiple correct
 };
 
 // Grade the quiz
@@ -89,7 +82,7 @@ function gradeQuiz() {
     let score = 0;
     let output = "<h2>Results</h2>";
 
-    // Q1
+    // --- Question 1 ---
     const q1 = document.getElementById("q1").value.trim();
     if (q1.toLowerCase() === answers.q1.toLowerCase()) {
         score++;
@@ -98,7 +91,7 @@ function gradeQuiz() {
         output += `<p class='incorrect'>Q1 Incorrect ✘ — Correct: ${answers.q1}</p>`;
     }
 
-    // Q2–Q4
+    // --- Questions 2,3,4 ---
     for (let i = 2; i <= 4; i++) {
         let user = document.querySelector(`input[name="q${i}"]:checked`);
         if (user && user.value === answers[`q${i}`]) {
@@ -109,7 +102,7 @@ function gradeQuiz() {
         }
     }
 
-    // Q5
+    // --- Question 5 ---
     let selected = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(x => x.value);
     const correct = JSON.stringify(selected.sort()) === JSON.stringify(answers.q5.sort());
 
@@ -117,10 +110,10 @@ function gradeQuiz() {
         score++;
         output += `<p class='correct'>Q5 Correct ✔</p>`;
     } else {
-        output += `<p class='incorrect'>Q5 Incorrect ✘ — Correct: JavaScript and Python</p>`;
+        output += `<p class='incorrect'>Q5 Incorrect ✘ — Correct answers: JavaScript, Python</p>`;
     }
 
-    // Final score
+    // Overall result
     output += `<h3>Total Score: ${score} / 5</h3>`;
     output += score >= 3 
         ? "<p class='pass'>You Passed ✔</p>"
@@ -136,3 +129,8 @@ function resetResults() {
 
 </body>
 </html>
+        
+        
+        </header>
+
+        
